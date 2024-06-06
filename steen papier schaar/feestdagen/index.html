@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dagen tot de volgende feestdag</title>
+  </head>
+  <body>
+    <h1 id="days-until-holiday">Bezig met laden...</h1>
+
+    <script>
+      // Function to get the next public holiday for a specific country
+      async function getNextHoliday(countryCode) {
+        const response = await fetch(
+          `https://date.nager.at/api/v3/NextPublicHolidays/${countryCode}`
+        );
+        const holidays = await response.json();
+
+        if (holidays.length > 0) {
+          return holidays[0]; // Return the entire holiday object
+        } else {
+          throw new Error("Geen feestdagen gevonden voor het opgegeven land.");
+        }
+      }
+
+      // Function to calculate the number of days until the next holiday
+      function calculateDaysUntil(holidayDate) {
+        const today = new Date();
+        const timeDifference = new Date(holidayDate) - today;
+        const daysDifference = Math.ceil(
+          timeDifference / (1000 * 60 * 60 * 24)
+        );
+        return daysDifference;
+      }
+
+      // Main function to display the days until the next holiday
+      async function displayDaysUntilHoliday() {
+        const countryCode = "NL"; // Set this to Netherlands country code
+
+        try {
+          const nextHoliday = await getNextHoliday(countryCode);
+          const daysUntilHoliday = calculateDaysUntil(nextHoliday.date);
+          document.getElementById(
+            "days-until-holiday"
+          ).innerText = `Dagen tot ${nextHoliday.localName}: ${daysUntilHoliday}`;
+        } catch (error) {
+          document.getElementById(
+            "days-until-holiday"
+          ).innerText = `Fout: ${error.message}`;
+        }
+      }
+
+      // Execute the main function
+      displayDaysUntilHoliday();
+    </script>
+  </body>
+</html>

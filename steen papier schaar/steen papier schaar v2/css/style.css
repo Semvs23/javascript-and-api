@@ -1,0 +1,72 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f3f3f3;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #333;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.choice {
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  margin: 0 10px;
+  border: 4px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.choice:hover {
+  transform: scale(1.1);
+}
+
+.choice:focus {
+  outline: none;
+}
+
+#humanChoice,
+#computerChoice {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+#result {
+  font-size: 1.5em;
+  margin-top: 20px;
+  color: #333;
+}
+
+#round,
+#highscore,
+#streak {
+  font-size: 1.2em;
+  color: #333;
+}
+
+#round::before,
+#highscore::before,
+#streak::before {
+  content: "\2022";
+  margin-right: 5px;
+}
+
+#countdown {
+  font-size: 2em;
+  margin-top: 20px;
+  color: #333;
+}

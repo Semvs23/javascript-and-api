@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Steen, Papier, Schaar</title>
+    <link rel="stylesheet" href="/steen papier schaar v2/css/style.css" />
+  </head>
+  <body>
+    <h1>Steen, Papier, Schaar</h1>
+    <div id="countdown">3</div>
+    <div class="choices">
+      <img
+        src="/steen papier schaar v2/img/Steen.png"
+        class="choice"
+        data-choice="Steen"
+        alt="Steen"
+      />
+      <img
+        src="/steen papier schaar v2/img/papier.png"
+        class="choice"
+        data-choice="Papier"
+        alt="Papier"
+      />
+      <img
+        src="/steen papier schaar v2/img/Schaar.png"
+        class="choice"
+        data-choice="Schaar"
+        alt="Schaar"
+      />
+    </div>
+    <div>
+      <p>Jouw keuze: <span id="humanChoice"></span></p>
+      <p>Computer's keuze: <span id="computerChoice"></span></p>
+    </div>
+    <div id="result"></div>
+    <div>
+      <p>Ronde: <span id="round">1</span></p>
+      <p>Highscore: <span id="highscore">0</span></p>
+      <p>Winstreek: <span id="streak">0</span></p>
+    </div>
+    <script src="/steen papier schaar v2/js/script.js"></script>
+  </body>
+</html>
